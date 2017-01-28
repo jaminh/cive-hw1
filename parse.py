@@ -18,6 +18,6 @@ csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
 csvwriter.writerow(['Detector-ID', 'Status'])
 
 for i in range(1,100,1):
-    csvwriter.writerow([reports[i].getchildren()[0].text, reports[i].getchildren()[1].text])
+    csvwriter.writerow([reports[i].getchildren()[0].text.strip(), reports[i].getchildren()[1].text.strip()])
 
 csvfile.close()
