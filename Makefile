@@ -1,8 +1,11 @@
-.PHONY: clean run capture parse
+.PHONY: clean distclean run capture parse
 .DEFAULT_GOAL := run
 
 clean:
 	rm -f *.xml *.csv
+
+distclean: clean
+	rm -f *.pyc
 
 run: capture parse
 
