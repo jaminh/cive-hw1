@@ -13,11 +13,11 @@ xpath = './/{{{0}}}collection-periods/{{{0}}}collection-period/{{{0}}}detector-r
 reports = tree.findall(xpath)
 
 csvfile = open('streamdata.csv', 'wb')
-csv = csv.writer(csvfile)
+csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
 
-csv.writerow(['Detector-ID', 'Status'])
+csvwriter.writerow(['Detector-ID', 'Status'])
 
 for i in range(1,100,1):
-    csv.writerow([reports[i].getchildren()[0].text, reports[i].getchildren()[1].text])
+    csvwriter.writerow([reports[i].getchildren()[0].text, reports[i].getchildren()[1].text])
 
 csvfile.close()
